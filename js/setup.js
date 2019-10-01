@@ -1,6 +1,6 @@
 // Файл setup.js
 'use strict';
-var NUMBER_WIZARDS = 4;
+var WIZARDS_COUNT = 4;
 var WIZARD_FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
@@ -15,13 +15,13 @@ var getRandomElement = function (array) {
 };
 
 var wizardNames = [];
-for (var i = 0; i < NUMBER_WIZARDS; i++) {
-  wizardNames [i] = getRandomElement(WIZARD_FIRST_NAMES) + ' ' + getRandomElement(WIZARD_LAST_NAMES);
+for (var i = 0; i < WIZARDS_COUNT; i++) {
+  wizardNames[i] = getRandomElement(WIZARD_FIRST_NAMES) + ' ' + getRandomElement(WIZARD_LAST_NAMES);
 }
 
 var wizards = [];
-for (var i = 0; i < NUMBER_WIZARDS; i++) {
-  wizards [i] =
+for (var i = 0; i < WIZARDS_COUNT; i++) {
+  wizards[i] =
     {
       name: wizardNames[i],
       coatColor: getRandomElement(COAT_COLORS),
