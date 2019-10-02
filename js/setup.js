@@ -1,4 +1,3 @@
-// Файл setup.js
 'use strict';
 var WIZARDS_COUNT = 4;
 var WIZARD_FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
@@ -15,12 +14,9 @@ var getRandomElement = function (array) {
 };
 
 var wizardNames = [];
-for (var i = 0; i < WIZARDS_COUNT; i++) {
-  wizardNames[i] = getRandomElement(WIZARD_FIRST_NAMES) + ' ' + getRandomElement(WIZARD_LAST_NAMES);
-}
-
 var wizards = [];
 for (var i = 0; i < WIZARDS_COUNT; i++) {
+  wizardNames[i] = getRandomElement(WIZARD_FIRST_NAMES) + ' ' + getRandomElement(WIZARD_LAST_NAMES);
   wizards[i] =
     {
       name: wizardNames[i],
@@ -43,6 +39,7 @@ var renderWizard = function (wizard) {
 };
 
 var fragment = document.createDocumentFragment();
+
 for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
