@@ -38,7 +38,12 @@ setupOpen.addEventListener('click', function () {
 
 setupOpen.addEventListener('keydown', keyPressHandler);
 
-setupClose.addEventListener('keydown', keyPressHandler);
+setupClose.addEventListener('keydown', function (evt) {
+
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closeUserDialog();
+  }
+});
 
 setupClose.addEventListener('click', function () {
   closeUserDialog();
