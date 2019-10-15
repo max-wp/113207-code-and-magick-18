@@ -13,8 +13,11 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 var setupUserName = userDialog.querySelector('.setup-user-name');
 
-var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+var getKeycode = function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openUserDialog();
+  }
+  if (evt.keycode === ESC_KEYCODE) {
     closeUserDialog();
   }
 };
@@ -25,7 +28,7 @@ var openUserDialog = function () {
 
 var closeUserDialog = function () {
   userDialog.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
+  document.removeEventListener('keydown', getKeycode);
 };
 
 
@@ -33,17 +36,9 @@ setupOpen.addEventListener('click', function () {
   openUserDialog();
 });
 
-setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openUserDialog();
-  }
-});
+setupOpen.addEventListener('keydown', getKeycode);
 
-setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closeUserDialog();
-  }
-});
+setupClose.addEventListener('keydown', getKeycode);
 
 setupClose.addEventListener('click', function () {
   closeUserDialog();
@@ -51,7 +46,6 @@ setupClose.addEventListener('click', function () {
 document.addEventListener('keydown', function (evt) {
 
   if (evt.keyCode === ESC_KEYCODE) {
-    event.stopPropagation();
     closeUserDialog();
   }
 });
