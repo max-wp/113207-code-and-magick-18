@@ -13,7 +13,7 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 var setupUserName = userDialog.querySelector('.setup-user-name');
 
-var getKeycode = function (evt) {
+var keyPressHandler = function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openUserDialog();
   }
@@ -28,7 +28,7 @@ var openUserDialog = function () {
 
 var closeUserDialog = function () {
   userDialog.classList.add('hidden');
-  document.removeEventListener('keydown', getKeycode);
+  document.removeEventListener('keydown', keyPressHandler);
 };
 
 
@@ -36,9 +36,9 @@ setupOpen.addEventListener('click', function () {
   openUserDialog();
 });
 
-setupOpen.addEventListener('keydown', getKeycode);
+setupOpen.addEventListener('keydown', keyPressHandler);
 
-setupClose.addEventListener('keydown', getKeycode);
+setupClose.addEventListener('keydown', keyPressHandler);
 
 setupClose.addEventListener('click', function () {
   closeUserDialog();
