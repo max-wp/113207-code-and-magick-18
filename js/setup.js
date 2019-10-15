@@ -82,6 +82,10 @@ setupFireballWrap.addEventListener('click', function () {
   wizardfireballColor.value = color;
 });
 
+// var userDialog = document.querySelector('.setup');
+// userDialog.classList.remove('hidden');
+
+
 var getRandomElement = function (array) {
   var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
